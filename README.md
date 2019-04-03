@@ -1,5 +1,5 @@
 # CGA-diary
-CGA学习日记(不知道怎么在README.md里插入图片，完整版看学习日记.doc)
+CGA学习日记(不知道怎么在README.md里插入图片 @_@ ，完整版请看"学习日记.docx")
 
 用到的Pyside基本模块介绍：
 
