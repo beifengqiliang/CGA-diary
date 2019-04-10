@@ -98,3 +98,48 @@ previousSibling()：获取前一个兄弟节点
 4月2日 敲代码中，rule部分，代码提交到GitHub的CGA_Viewer项目中。
 
 4月3日 上午科目一考试，下午和晚上继续码。。。依旧是rule中对xml进行语法分析部分，这段敲完之后会进行调试。
+4月4日-4月8日 编码
+
+4月9日 问题：python+qml怎么在QML场景中用OpenGL渲染多边形?
+
+Cube OpenGL ES 2.0 example：
+https://doc.qt.io/qtforpython/overviews/qtopengl-cube-example.html?highlight=glenable
+
+有许多方法可以在OpenGL中渲染多边形，但最有效的方法是仅使用三角形条带基元并从图形硬件存储器中渲染顶点。 OpenGL有一种机制可以为这个内存区域创建缓冲区对象，并将顶点数据传输到这些缓冲区。在OpenGL术语中，这些被称为顶点缓冲对象（VBO）。
+
+这是立方体面分解为三角形的方式。以这种方式对顶点进行排序，以使用三角形条带使顶点排序正确。 OpenGL根据顶点排序确定三角形正面和背面。默认情况下，OpenGL对前面使用逆时针顺序。该信息由背面剔除使用，其通过不渲染三角形的面来改善渲染性能。这样，图形管线可以省略三角形的不面向屏幕的渲染边。
+
+使用QOpenGLBuffer创建顶点缓冲区对象并将数据传输到它们非常简单。 MainWidget确保使用OpenGL上下文当前创建和销毁GeometryEngine实例。这样我们就可以在构造函数中使用OpenGL资源，并在析构函数中执行适当的清理。
+
+OpenGL Window Example：https://doc.qt.io/qt-5/qtgui-openglwindow-example.html
+
+
+Scene Graph - OpenGL Under QML：
+演示如何在Qt Quick场景下渲染OpenGL
+https://doc.qt.io/qtforpython/overviews/qtquick-scenegraph-openglunderqml-example.html?highlight=qmlregistertype
+
+Scene Graph - Custom Geometry：
+自定义几何示例显示如何创建QQuickItem使用场景图API为场景图构建自定义几何的方法。它通过创建一个BezierCurve项来实现这一点，该项是CustomGeometry模块的一部分，并在QML文件中使用它。
+https://doc.qt.io/qtforpython/overviews/qtquick-scenegraph-customgeometry-example.html?highlight=qmlregistertype
+
+QGLWidget类：
+https://doc.qt.io/qtforpython/PySide2/QtOpenGL/QGLWidget.html?highlight=glenable
+
+用于Python交互的QML和Qt：
+https://blog.qt.io/blog/2018/05/14/qml-qt-python/
+
+如何用Python for Qt / PyQt：
+https://machinekoder.com/how-to-not-shoot-yourself-in-the-foot-using-python-qt/
+
+QML与Python通信：
+https://my.oschina.net/u/1275030/blog/186341
+
+
+
+4月10日
+
+实现跨平台的QML和OpenGL混合渲染：
+https://blog.csdn.net/gamesdev/article/details/38024327
+
+PySide2 port of the opengl/contextinfo example from Qt v5.x：
+D:\Program Files\python37\Lib\site-packages\PySide2\examples\opengl
